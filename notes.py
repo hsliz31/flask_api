@@ -8,15 +8,18 @@ Unrestricted
 
 # 이후 venve 환경 설정 하기 위해 
 # 아래 폴더에서
-PS C:\Users\songb\recap\
+PS C:\Users\songb\api\
 
 #venv 설정
 # python -m venv 
 
 # 아래 스크립트 실행
-./recap/Scripts/activate
+./api_v1/Scripts/activate
 
-(recap) PS C:\Users\songb\recap\recap> 
+(api_v1) PS C:\Users\songb\api
+
+#사용하는 library
+pip install Flask-SQLAlchemy flask 
 
 #아래 실행
 flask --app app run
