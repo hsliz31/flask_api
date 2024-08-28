@@ -7,6 +7,8 @@
 - method 가 delete 일 경우, 성공했다는 200 메시지를 주는데, 간혹 204 메시지를 주는 경우도 있음
     - 204 : no contents 라는 의미
     - 정상적으로 삭제가 되었으니 앞으로 요청한 이 콘텐츠는 이용할 수 없다는 상태코드임 
+- CRUD 관련해서 작업 완료했고 bash terminal 에서 아래 코드로 테스트 해 볼 수 있었음
+```curl -X PUT -H "Content-Type: application/json; charset=utf-8" -d '{"userid":"lee"}' "http://127.0.0.1:5000/api/v1/users/4" ```
 
 
 44494abda6147926ce4e34d689f3f296889fbdef
