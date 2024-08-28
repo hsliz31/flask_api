@@ -33,4 +33,4 @@ def users():
     users = Fcuser.query.all()
 
 
-    return jsonify()
+    return jsonify([user.serialize for user in users])
