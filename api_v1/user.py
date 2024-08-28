@@ -31,6 +31,17 @@ def users():
 
     
     users = Fcuser.query.all()
-
-
     return jsonify([user.serialize for user in users])
+
+@api.route('/users/<uid>', methods=['GET', 'PUT', 'DELETE'])
+def user_detail(uid):
+    #method 를 확인해서 원하는 api 를 만들 수 있음
+    if request.method == 'GET' :
+        user = Fcuser.query.filter(Fcuser.id ==uid).first()
+        return jsonify(user.serialize)
+
+    elif request.method == 'DELETE' : 
+        Fcuser.query.delete(Fcuser.id == uid)
+        return jsonify(), 204
+
+    elif request.method
