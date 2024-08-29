@@ -13,7 +13,15 @@
             function regist() {
                 $.ajax({
                     url : '/api/v1/users',
-                    method : 'GET'
+                    contentType : 'application/json'
+                    method : 'POST',
+                    data : JSON.stringify({
+                        userid : $('#userid').value,
+                        username : $('#username').value,
+                        password : $('#password').value,
+                        're-password' : $('#re-password').value,
+                    })
+
                 }).done(function(res){
                     console.log(res);
                 });

@@ -17,6 +17,12 @@
     ```<button type="button" class="btn btn-primary" onclick="regist()">등록</button>```
     - 이제 비로소 버튼과 함수가 연결됨
 
+    ----
+    - ajax로 이제 데이터도 같이 전송하고 'POST'를 해볼 것임 
+    - api 는 폼을 사용하지 않고 json 을 활용함
+    - json 형태로 변경해줘야함. 
+        - 그래서 form 을 사용하고 있는 부분을 변경해줘야함.
+
 2024-08-28
 
 b79104c57903d9464c349478955a56a9588b5a19
