@@ -1,3 +1,22 @@
+2024-08-29
+- jQuery CND 에 들어가서 jQuery 복사! + ```register.html``` 파일에 script 추가
+    - <head> 부분에 <script> 를 추가해서 작성하는 것임 
+    - 문법 : ```$.ajax ```
+    - 언제할 것인가? 
+        - 회원가입할 때 버튼을 누를 것임
+        - 이때 ajax 요청을 하여 성공이 되었을 때 alert 띄우고 홈으로 보내는 작업
+        ㄴ 버튼을 눌렀을 때 ajax 실행 == 함수로 작성
+    - 완료되었을 때 콜백을 받을 수 있음 
+    
+    - 작성이 완료된 후에는 버튼과 연결해야함
+    기존 코드
+    ```<button type="submit" class="btn btn-primary">등록</button>```
+    수정할 내용
+    type을 'submit' 일 클릭 할경우, 액션이 넘어감
+    type 을 버튼으로 변경, onclick 을 만들고 만든 function 과 연결
+    ```<button type="button" class="btn btn-primary" onclick="regist()">등록</button>```
+    - 이제 비로소 버튼과 함수가 연결됨
+
 2024-08-28
 
 b79104c57903d9464c349478955a56a9588b5a19
