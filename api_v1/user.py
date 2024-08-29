@@ -13,6 +13,7 @@ def users():
         username = data.get('username')
         password = data.get('password')
         re_password = data.get('re-password')
+        print(data)
 
         if not (userid and username and password and re_password) :
             return jsonify({'error' : 'No arguments'}), 400
