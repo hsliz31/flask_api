@@ -53,7 +53,7 @@ def protected():
 
 @app.route('/')
 def hello():
-    return 'Hello World'
+    return render_template('home.html')
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 dbfile = os.path.join(basedir, 'db.sqlite')

@@ -8,6 +8,17 @@
         결과로 받은 값 중에서 ```$.cookie('access_token', res.access_token);``` access_token 이라는 키로 저장
     - test 하는 방법 : 
         - 개발자 도구 --> application 에서 cookie 를 열어보면 'access_token'값이 잘 들어왔는 지 확인
+    
+
+- 사용자 목록 조회하는 API를 로그인한 사용자만 사용할 수 있게끔 구현
+- 이후 홈에서 해당데이터를 조회하는 형태로 구현 
+    1. templates 폴더에 home.html 생성
+        - 함수를 통해서 호출하는 것이 아닌 문서가 준비되었들 때 ajax 로 호출
+        - 조회 할 것이기 때문에 GET 사용
+    2. ```app.py``` 에서 ```render_template('home.html')``` 설정필요
+
+
+----
 
 강의 영상이 아무래도 몇년 전 것이다 보니, flask 버전 등 잘 맞지 않는 부분들이 존재함. 
 이것을 어떻게 해결할 것인가...
