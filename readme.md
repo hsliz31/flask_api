@@ -1,4 +1,14 @@
 2024-08-30
+- access token 을 cookie 에 저장후 요청할 때마다 전달할 수 있게 설정
+- cookie 를 사용하기 위해 - jquery cookie cdn 구글에 검색해서 활용하면 됨 
+```https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js```
+- 해당 내용을 ```login.html``` 파일에 추가
+    - script 로 위 주소 추가
+    - 그 이후 ajax 쪽에다가도 추가 하는데 
+        결과로 받은 값 중에서 ```$.cookie('access_token', res.access_token);``` access_token 이라는 키로 저장
+    - test 하는 방법 : 
+        - 개발자 도구 --> application 에서 cookie 를 열어보면 'access_token'값이 잘 들어왔는 지 확인
+
 강의 영상이 아무래도 몇년 전 것이다 보니, flask 버전 등 잘 맞지 않는 부분들이 존재함. 
 이것을 어떻게 해결할 것인가...
 열심히 GPT와 함께 디버깅을 완료했음
