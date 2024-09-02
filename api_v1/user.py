@@ -1,10 +1,12 @@
 from flask import jsonify
 from models import Fcuser, db
+from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 from flask import request
 from . import api
 
 #controller 코드를 만듬
 @api.route('/users', methods=['GET', 'POST'])
+@jwt_required()
 def users():
     #회원생성
     if request.method == 'POST' :
