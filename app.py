@@ -10,15 +10,9 @@ app = Flask(__name__)
 #blueprint를 쓸거다 api_v1에서 제공하고 있는 controller 코드들은 user.py url_prefix 붙힌뒤에 제공하겠다
 #200 정상처리, 실패코드 404, 403 
 app.register_blueprint(api_v1, url_prefix='/api/v1')
-
 app.config["JWT_SECRET_KEY"] = "super-secret"  # Change this!
 jwt = JWTManager(app)
 
-#JWT 가 기본적으로 username 을 활용하고 있음
-def authenticate(username, password) : 
-    user = Fcuser.query.filter(Fcuser.userid == username).first()
-    if user.password == password:
-        return user
 
 
 @app.route('/register')
@@ -50,6 +44,17 @@ def auth():
 def protected():
     current_user = get_jwt_identity()
     return jsonify(logged_in_as=current_user), 200
+#JWT 가 기본적으로 username 을 활용하고 있음
+def authenticate(username, password) : 
+    user = Fcuser.query.filter(Fcuser.userid == username).first()
+    if user.password == password:
+        return user
+
+def identity(payload):
+    userid = payload['identity']
+    return Fcuser.query.filter(Fcuser.userid == userid).first()
+
+
 
 @app.route('/')
 def hello():
@@ -68,6 +73,9 @@ db.init_app(app)
 # Ensure the following block runs within an app context
 with app.app_context():
     db.create_all()  # Create the database tables
+
+
+
 
 
 if __name__ == "__main__" :

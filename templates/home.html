@@ -11,17 +11,31 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
         <script>
             $(document).ready(function () {
+                if($.cookie('access_token')) {
+                    ('#logout-div').show();
+                } else {
+                    $('#logout-div').hide();
+                }
+
                 $.ajax({
                     url:'/api/v1/users',
                     contentType:'application/json',
                     method:'GET',
                     beforeSend: function(xhr){
-                        xhr.setRequestHeader('Authorization', 'JWT' + $.cookie('access_token'))
+                        xhr.setRequestHeader('Authorization', 'JWT ' + $.cookie('access_token'))
                     }
-                    })
-                }).done(function(res){
+                    }).done(function(res){
                     console.log(res);
-                });
+                    $("#content").text(res);
+                }).error(function(res){
+                    window.location = '/login';
+                })
+            });
+            
+            function.logout() {
+                $.removeCookie('access_token');
+                window.location = '/login';
+            }
         </script>
 
     </head>
@@ -31,6 +45,9 @@
         </div>
         <div class="row mt-5">
         </div>
+    </div>
+    <div id = 'logout-div'>
+        <button class="btn" onclick="logout();">로그아웃</button>
     </div>
 
     <body>

@@ -24,6 +24,7 @@
                     alert('로그인에 성공했습니다!');
                     console.log(res);
                     $.cookie('access_token', res.access_token);
+                    window.location = '/';
                 });
             }
 
