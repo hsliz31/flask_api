@@ -11,28 +11,27 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
         <script>
             $(document).ready(function () {
-                if($.cookie('access_token')) {
-                    ('#logout-div').show();
+                if ($.cookie('access_token')) {
+                    $('#logout-div').show(); 
                 } else {
                     $('#logout-div').hide();
                 }
 
                 $.ajax({
-                    url:'/api/v1/users',
-                    contentType:'application/json',
-                    method:'GET',
+                    url: '/api/v1/users',
+                    contentType: 'application/json',
+                    method: 'GET',
                     beforeSend: function(xhr){
-                        xhr.setRequestHeader('Authorization', 'JWT ' + $.cookie('access_token'))
-                    }
-                    }).done(function(res){
-                    console.log(res);
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + $.cookie('access_token'));  // Use 'Bearer' instead of 'JWT'
+                    }  // Closing the beforeSend function
+                }).done(function(res){
                     $("#content").text(res);
-                }).error(function(res){
-                    window.location = '/login';
-                })
+                }).fail(function(res){  // Use .fail instead of .error
+                window.location = '/login';
+                });
             });
-            
-            function.logout() {
+
+            function logout() {
                 $.removeCookie('access_token');
                 window.location = '/login';
             }
@@ -47,7 +46,7 @@
         </div>
     </div>
     <div id = 'logout-div'>
-        <button class="btn" onclick="logout();">로그아웃</button>
+        <button class="btn" onclick="logout()">로그아웃</button>
     </div>
 
     <body>

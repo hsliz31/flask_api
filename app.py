@@ -10,7 +10,7 @@ app = Flask(__name__)
 #blueprint를 쓸거다 api_v1에서 제공하고 있는 controller 코드들은 user.py url_prefix 붙힌뒤에 제공하겠다
 #200 정상처리, 실패코드 404, 403 
 app.register_blueprint(api_v1, url_prefix='/api/v1')
-app.config["JWT_SECRET_KEY"] = "super-secret"  # Change this!
+app.config["JWT_SECRET_KEY"] = ":0w5A}@tJN^ex28g+DXz]:#Ca6S6p:"  # Change this!
 jwt = JWTManager(app)
 
 

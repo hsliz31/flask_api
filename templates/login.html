@@ -25,8 +25,13 @@
                     console.log(res);
                     $.cookie('access_token', res.access_token);
                     window.location = '/';
+                }).fail(function(res){  // Use .fail instead of .error
+                    alert('로그인 정보를 확인해주세요.');
+                    window.location = '/login';
                 });
             }
+
+            
 
         </script>
 
